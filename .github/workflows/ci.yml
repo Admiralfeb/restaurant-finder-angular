@@ -9,22 +9,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js 12.x
+      - name: Use Node.js 13.x
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 13.x
       - name: Install Project
         run: npm ci
       - name: Run Unit Tests
         run: npm test
         env:
           CI: true
-      # - name: Upload CodeCoverage
-      #   uses: codecov/codecov-action@master
-      #   with:
-      #     token: ${{secrets.CODECOV_TOKEN}}
-      #     file: coverage/*.json
-      #     flags: unittests
+      - name: Upload CodeCoverage
+        uses: codecov/codecov-action@master
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
+          file: coverage/*.json
+          flags: unittests
 
   build:
     name: Build
@@ -33,10 +33,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js 12.x
+      - name: Use Node.js 13.x
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 13.x
       - name: Run Build
         run: |
           npm ci

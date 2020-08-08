@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [13.x]
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node-version }}
@@ -19,10 +19,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install Packages
         run: npm ci
-      - name: Build page
-        run: npm run build
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3.6.1
+        run: npm run deploy:gh-pages
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build

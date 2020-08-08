@@ -61,6 +61,9 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "gh-pages": {
+              "baseHref": "https://admiralfeb.github.io/restaurant-finder-angular/"
             }
           }
         },
@@ -124,10 +127,6 @@
               "devServerTarget": "restaurant-finder-angular:serve:production"
             }
           }
-        },
-        "deploy-to-pages": {
-          "builder": "angular-cli-ghpages:deploy",
-          "baseHref": "https://admiralfeb.github.io/restaurant-finder-angular/"
         }
       }
     }

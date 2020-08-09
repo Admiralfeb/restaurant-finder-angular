@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { LocationService, IGeoLocation } from '@services/location.service';
+import { LocationService } from '@services/location.service';
 import { take } from 'rxjs/operators';
+import { IGeoLocation, IUserEntry } from '@services/models';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-user-input',

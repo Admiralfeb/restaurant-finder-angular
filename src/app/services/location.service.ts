@@ -2,18 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-
-export interface IGeoLocation {
-  lat: number;
-  lon: number;
-}
-
-interface IReverseResponse {
-  results: {
-    address_components: {}[],
-    formatted_address: string,
-  }[];
-}
+import { IGeoLocation, IReverseResponse } from './models';
 
 @Injectable({
   providedIn: 'root'

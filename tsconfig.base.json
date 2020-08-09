@@ -18,6 +18,6 @@
     "target": "es2015",
     "module": "es2020",
     "lib": ["es2018", "dom"],
-    "composite": true
+    "composite": false
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LocationService, IGeoLocation } from '@services/location.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-input',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserInputComponent implements OnInit {
 
-  constructor() { }
+  addressFieldValue: string;
+  constructor(private locationService: LocationService) { }
 
   ngOnInit(): void {
+  }
+
+  formatMiles(value: number): string {
+    return value + 'mi';
+  }
+
+  scanGeoLocation(): void {
+    this.locationService.locationSubject.pipe(take(1)).subscribe(val => this.receiveGeoLocation(val));
+    this.locationService.findLocationfromDevice();
+  }
+
+  private receiveGeoLocation(locus: IGeoLocation): void {
+    this.locationService.findAddressfromGeoLocation(locus).then(val => this.addressFieldValue = val);
   }
 
 }

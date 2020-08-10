@@ -1,3 +1,6 @@
+import { appKeys } from './keys';
+
 export const environment = {
-  production: true
+  production: true,
+  googleAPI: appKeys.googleAPI,
 };

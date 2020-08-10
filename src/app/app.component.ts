@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'restaurant-finder-angular';
+
+  hideMap = true;
+
+  onUserDisplayChange(): void {
+    this.hideMap = !this.hideMap;
+  }
 }

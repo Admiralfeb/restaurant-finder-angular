@@ -1,1 +1,25 @@
-<h2>UserInput Component</h2>
+<section class="container">
+  <h2>Location, Price, and Distance</h2>
+  <p>Please fill out the following information to find a restaurant</p>
+  <section class="entry" id="location-info">
+    <h3>Location</h3>
+    <p>Enter your address/zipcode or click the location button</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Address/Zip Code</mat-label>
+      <input [(ngModel)]="address" matInput>
+    </mat-form-field>
+    <button mat-icon-button (click)="scanGeoLocation()">
+      <mat-icon>location_searching</mat-icon>
+    </button>
+  </section>
+  <section class="entry" id="price">
+    <h3>Price Range (1-4)</h3>
+    <mat-slider #price min="1" max="4" step="1" thumbLabel tickInterval="1"></mat-slider>
+  </section>
+  <section class="entry" id="distance">
+    <h3>Distance (10-50 miles)</h3>
+    <mat-slider #distance min="10" max="50" step="10" thumbLabel [displayWith]="formatMiles" tickInterval="1">
+    </mat-slider>
+  </section>
+  <button mat-raised-button (click)="submit(price.value, distance.value)">Submit</button>
+</section>

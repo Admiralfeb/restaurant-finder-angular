@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { IUserEntry } from '@services/models';
+import { MapService } from '@services/map.service';
 
 @Component({
   selector: 'app-map',
@@ -6,13 +8,17 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
-  @Output() displayUserInput = new EventEmitter<void>();
-  constructor() { }
+  userInput: IUserEntry;
+  restaurants: [];
+
+  constructor(private mapService: MapService) { }
 
   ngOnInit(): void {
+    this.userInput = this.mapService.userEntry;
+    this.mapService.getRestaurants();
   }
 
   showUserInput(): void {
-    this.displayUserInput.emit();
+
   }
 }

@@ -1,1 +1,9 @@
-<button mat-raised-button (click)="showUserInput()">Re-enter your options</button>
+<section id="user-entry">
+  <h3>Info Provided</h3>
+  <ng-container *ngIf="userInput">
+    <p>Address: {{userInput.address}}</p>
+    <p>Price Range: {{userInput.price}}</p>
+    <p>Distance (meters): {{userInput.distance}}</p>
+  </ng-container>
+  <button mat-raised-button (click)="showUserInput()">Re-enter options</button>
+</section>

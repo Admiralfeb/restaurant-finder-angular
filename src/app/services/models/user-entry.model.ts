@@ -1,5 +1,8 @@
+import { IGeoLocation } from './geolocation.model';
+
 export interface IUserEntry {
-  address: string;
+  address?: string;
+  coordinates: IGeoLocation;
   price: number;
   distance: number;
 }

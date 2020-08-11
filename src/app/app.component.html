@@ -2,6 +2,9 @@
   <span>Restaurant Finder</span>
 </mat-toolbar>
 <main>
-  <app-user-input [ngClass]="!hideMap ? 'hidden': ''" (userSubmit)="onUserDisplayChange()"></app-user-input>
-  <app-map [ngClass]="hideMap ? 'hidden' : ''" (displayUserInput)="onUserDisplayChange()"></app-map>
+  <router-outlet></router-outlet>
+  <!-- <app-user-input [ngClass]="!hideMap ? '': ''" (userSubmit)="onUserDisplayChange()">
+    </app-user-input>
+    <app-map [ngClass]="hideMap ? '' : ''" (displayUserInput)="onUserDisplayChange()" [userInput]="userEntry">
+    </app-map> -->
 </main>
